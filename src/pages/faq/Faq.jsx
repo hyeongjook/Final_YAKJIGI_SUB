@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../styles/faq/Faq.css';
+import styles from '../../styles/faq/Faq.module.css';
 import { Link } from 'react-router-dom';
 
 const Faq = () => {
@@ -41,54 +41,51 @@ const Faq = () => {
   };
 
   return (
-    <div className="faq__container">
-
-
-      <h2 className='faq__title'>자주 묻는 질문</h2>
-      <h3 className='faq__subtitle1'>개별 문의 전, 필요한 정보를 빠르게 확인해보세요</h3>
-      <div className="faq__header">
-        <span className="faq__total">전체 19건</span>
-        <div className='faq__searchbar'>
+    <div className={styles.faq__container}>
+      <h2 className={styles.faq__title}>자주 묻는 질문</h2>
+      <h3 className={styles.faq__subtitle1}>개별 문의 전, 필요한 정보를 빠르게 확인해보세요</h3>
+      <div className={styles.faq__header}>
+        <span className={styles.faq__total}>전체 19건</span>
+        <div className={styles.faq__searchbar}>
           <input
             type="text"
-            className="faq__search"
+            className={styles.faq__search}
             placeholder="검색어를 입력해주세요"
           />
-          <span className="material-symbols-outlined faq__searchicon">search</span>
+          <span className="material-icons">search</span>
         </div>
       </div>
-      <div className="faq__list">
+      <div className={styles.faq__list}>
         {faqData.map((item, index) => (
-          <div key={index} className="faq__item">
+          <div key={index} className={styles.faq__item}>
             <div
-              className={`faq__question ${index === 0 ? 'first-question' : ''}`}
+              className={`${styles.faq__question} ${index === 0 ? styles.firstQuestion : ''}`}
               onClick={() => toggleAnswer(index)}
             >
-
               {item.question}
-              <span className={`material-symbols-outlined ${activeIndex === index ? 'rotate' : ''}`}>
+              <span className={`material-icons ${activeIndex === index ? styles.rotate : ''}`}>
                 {activeIndex === index ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
               </span>
             </div>
 
             {activeIndex === index && (
-              <div className="faq__answer active">
+              <div className={`${styles.faq__answer} ${styles.active}`}>
                 {item.answer}
               </div>
             )}
           </div>
         ))}
       </div>
-      <div className="faq__page">
-        <Link className="faq__pageLink">&lt;&lt;</Link>
-        <Link className="faq__pageLink">&lt;</Link>
-        <Link className="faq__pageLink">1</Link>
-        <Link className="faq__pageLink">2</Link>
-        <Link className="faq__pageLink">3</Link>
-        <Link className="faq__pageLink">4</Link>
-        <Link className="faq__pageLink">5</Link>
-        <Link className="faq__pageLink">&gt;</Link>
-        <Link className="faq__pageLink">&gt;&gt;</Link>
+      <div className={styles.faq__page}>
+        <Link className={styles.faq__pageLink}>&lt;&lt;</Link>
+        <Link className={styles.faq__pageLink}>&lt;</Link>
+        <Link className={styles.faq__pageLink}>1</Link>
+        <Link className={styles.faq__pageLink}>2</Link>
+        <Link className={styles.faq__pageLink}>3</Link>
+        <Link className={styles.faq__pageLink}>4</Link>
+        <Link className={styles.faq__pageLink}>5</Link>
+        <Link className={styles.faq__pageLink}>&gt;</Link>
+        <Link className={styles.faq__pageLink}>&gt;&gt;</Link>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../styles/sub105/sub105.css';
+import styles from '../../styles/sub105/sub105.module.css';
 
 const Sub105 = () => {
   const [activeCategory, setActiveCategory] = useState(null);
@@ -50,15 +50,15 @@ const Sub105 = () => {
   };
 
   return (
-    <div className="sub105__medlawcontainer">
-      <h2 className="sub105__medlawtitle">의약품 관련 법령</h2>
-      <h3 className="sub105__medlawsubtitle">의약품 관련 법령들을 조회해보세요</h3>
+    <div className={styles.sub105__medlawcontainer}>
+      <h2 className={styles.sub105__medlawtitle}>의약품 관련 법령</h2>
+      <h3 className={styles.sub105__medlawsubtitle}>의약품 관련 법령들을 조회해보세요</h3>
 
-      <div className="sub105__medlawcategories">
+      <div className={styles.sub105__medlawcategories}>
         {['법률', '대통령령', '총리령', '고시'].map((category) => (
           <button
             key={category}
-            className={`sub105__medlawcategorybtn ${activeCategory === category ? 'active' : ''}`}
+            className={`${styles.sub105__medlawcategorybtn} ${activeCategory === category ? styles.active : ''}`}
             onClick={() => fetchData(category)}
           >
             {category}
@@ -68,7 +68,7 @@ const Sub105 = () => {
 
       {isLoading && <p>데이터를 불러오는 중...</p>}
 
-      <div className="sub105__medlawapicontent">
+      <div className={styles.sub105__medlawapicontent}>
         {apiData ? (
           <div
             dangerouslySetInnerHTML={{ __html: parseXmlToHtml(apiData) }}

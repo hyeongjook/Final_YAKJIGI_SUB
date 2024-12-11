@@ -3,13 +3,13 @@ import { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'reset-css';
 import '../node_modules/aos/dist/aos.css';
-import './App.css';
+import './App.module.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Faq from './pages/faq/Faq';
 import Container from './pages/main/Container';
 import Sub105 from './pages/sub105/Sub105';
-import './styles/common.css';
+import './styles/common.module.css';
 
 function App() {
   useEffect(() => {
