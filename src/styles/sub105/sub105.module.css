@@ -66,10 +66,10 @@ body {
    padding: 20px;
    border: 1px solid #f70808;
    background-color: #fafafa;
-   min-height: 200px;
+   min-height: 700px;
 }
 
-.sub105__medlawapicontent pre {
+.sub105__medlawapicontent div {
    white-space: pre-wrap;
    word-wrap: break-word;
    font-size: 14px;

@@ -30,7 +30,7 @@ body {
   border-bottom: 1px solid #DDDDDD;
   position: relative;
   color: #CCCCCC;
-  padding: 10px 0;
+  height: 46px;
 }
 
 .faq__searchicon {
@@ -44,6 +44,13 @@ body {
 
 .faq__searchbar{
     position: relative;
+}
+
+.faq__searchbar span {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 }
 
 .faq__container {

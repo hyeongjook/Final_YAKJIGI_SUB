@@ -9,6 +9,8 @@ import Header from './components/Header';
 import Faq from './pages/faq/Faq';
 import Container from './pages/main/Container';
 import Sub105 from './pages/sub105/Sub105';
+import Sub301 from './pages/sub301/Sub301';
+import Sub302 from './pages/sub302/Sub302';
 import './styles/common.module.css';
 
 function App() {
@@ -28,8 +30,10 @@ function App() {
             <Header />
             <Routes>
                <Route path='/' element={<Container />} />
-               <Route path='/Faq' element={<Faq />} />
-               <Route path='/Sub105' element={<Sub105 />}/>
+               <Route path='/faq' element={<Faq />} />
+               <Route path='/sub105' element={<Sub105 />}/>
+               <Route path='/sub301' element={<Sub301 />}/>
+               <Route path='/sub302' element={<Sub302 />}/>
             </Routes>
             <Footer />
          </div>

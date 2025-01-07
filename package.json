@@ -7,14 +7,21 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
+    "axios": "^1.7.9",
+    "buffer": "^6.0.3",
+    "fs": "^0.0.1-security",
     "jquery": "^3.7.1",
+    "mysql2": "^3.12.0",
     "react": "^18.3.1",
+    "react-app-rewired": "^2.2.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.2",
     "react-scripts": "5.0.1",
     "reset-css": "^5.0.2",
     "swiper": "^11.1.15",
-    "web-vitals": "^2.1.4"
+    "timers-browserify": "^2.0.12",
+    "web-vitals": "^2.1.4",
+    "xml2js": "^0.6.2"
   },
   "scripts": {
     "start": "react-scripts start",
