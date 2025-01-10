@@ -1,59 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from '../../styles/sub105/sub105.module.css';
 
 const Sub105 = () => {
   const [activeCategory, setActiveCategory] = useState(null);
-  const [apiData, setApiData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  // 법제처 API 요청 함수
-  async function lawApiCall(apiUrl) {
-    try {
-      const response = await fetch(apiUrl); // 동적으로 설정된 URL로 요청
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+  // 각 카테고리에 해당하는 링크들
+  const categoryLinks = {
+    법령: 'https://www.law.go.kr/LSW/lsSc.do?section=&menuId=1&subMenuId=15&tabMenuId=81&eventGubun=060101&query=%EC%9D%98%EC%95%BD%ED%92%88+%EB%B6%80%EC%9E%91%EC%9A%A9+%ED%94%BC%ED%95%B4%EA%B5%AC%EC%A0%9C%EC%97%90+%EA%B4%80%ED%95%9C+%EA%B7%9C%EC%A0%95#undefined',
+    대통령령: 'https://www.law.go.kr/LSW/lsSc.do?section=&menuId=1&subMenuId=15&tabMenuId=81&eventGubun=060101&query=%EC%9D%98%EC%95%BD%ED%92%88+%EB%93%B1%EC%9D%98+%EC%95%88%EC%A0%84%EC%97%90+%EA%B4%80%ED%95%9C+%EA%B7%9C%EC%B9%99#undefined',
+    총리령: 'https://www.law.go.kr/LSW/lsSc.do?section=&menuId=1&subMenuId=15&tabMenuId=81&eventGubun=060101&query=%EC%9D%98%EC%95%BD%ED%92%88+%EB%93%B1%EC%9D%98+%EC%95%88%EC%A0%84%EC%97%90+%EA%B4%80%ED%95%9C+%EA%B7%9C%EC%B9%99#undefined',
+    고시: 'https://www.law.go.kr/LSW/admRulSc.do?menuId=5&subMenuId=41&tabMenuId=183&p1=&subMenu=1&nwYn=1&section=&tabNo=&query=%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EC%95%BD%EC%A0%84#liBgcolor0'
+  };
 
-      const jsonData = await response.json(); // JSON 형태로 응답 받기
-      console.log('API Response Data:', jsonData); // API 데이터 구조 확인
-
-      // 데이터가 정상적으로 응답되었을 때 상태 업데이트
-      setApiData(jsonData); 
-      setIsLoading(false); // 데이터 로딩 끝
-    } catch (error) {
-      console.error('Error:', error);
-      setError('데이터를 불러오는 데 문제가 발생했습니다.'); // 에러 메시지 설정
-      setIsLoading(false); // 로딩 상태 종료
-    }
-  }
-
-  // 데이터 가져오기
-  const fetchData = (category) => {
+  const handleCategoryChange = (category) => {
     setActiveCategory(category);
-    setIsLoading(true);
-    setError(null); // 에러 초기화
-
-    let apiUrl = '';
-    switch (category) {
-      case '법령':
-        apiUrl = 'https://www.law.go.kr/DRF/lawService.do?OC=biosnow19&target=law&MST=267395&type=JSON';
-        break;
-      case '대통령령':
-        apiUrl = 'https://www.law.go.kr/DRF/lawService.do?OC=biosnow19&target=law&MST=267295&type=JSON';
-        break;
-      case '총리령':
-        apiUrl = 'https://www.law.go.kr/DRF/lawService.do?OC=biosnow19&target=law&MST=267895&type=JSON';
-        break;
-      case '고시':
-        apiUrl = 'https://www.law.go.kr/DRF/lawService.do?OC=biosnow19&target=admrul&type=XML&ID=2100000232576';
-        break;
-      default:
-        return;
-    }
-
-    
-    lawApiCall(apiUrl);
   };
 
   return (
@@ -66,7 +26,7 @@ const Sub105 = () => {
           <button
             key={category}
             className={`${styles.sub105__medlawcategorybtn} ${activeCategory === category ? styles.active : ''}`}
-            onClick={() => fetchData(category)}
+            onClick={() => handleCategoryChange(category)}
           >
             {category}
           </button>
@@ -74,28 +34,15 @@ const Sub105 = () => {
       </div>
 
       <div className={styles.sub105__medlawapicontent}>
-        {isLoading && <p>데이터를 불러오는 중...</p>}
-        {error && <p>{error}</p>} {/* 에러 메시지 표시 */}
-
-        {apiData ? (
-          apiData.법령 && apiData.법령.개정문 && apiData.법령.개정문.개정문내용 ? (
-            apiData.법령.개정문.개정문내용.map((content, index) => (
-              <div key={index} className={styles.contentItem}>
-                {/* content가 문자열일 경우만 split을 적용 */}
-                {typeof content === 'string' ? (
-                  content.split("\n").map((line, idx) => (
-                    <p key={idx}>{line}</p>
-                  ))
-                ) : (
-                  <p>{JSON.stringify(content)}</p> // 문자열이 아니면 객체 형태로 출력
-                )}
-              </div>
-            ))
-          ) : (
-            <p>데이터가 없습니다.</p>
-          )
+        {activeCategory ? (
+          <iframe
+            src={categoryLinks[activeCategory]}
+            width="100%"
+            height="800px"
+            title={`${activeCategory} 법령`}
+          />
         ) : (
-          <p>카테고리를 선택하십시오.</p> // apiData가 없을 경우
+          <p>카테고리를 선택하십시오.</p>
         )}
       </div>
     </div>
