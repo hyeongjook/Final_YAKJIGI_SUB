@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styles from '../../styles/sub105/sub105.module.css';
 
 const Sub105 = () => {
-  const [activeCategory, setActiveCategory] = useState(null);
+  // 초기 상태를 '법령'으로 설정
+  const [activeCategory, setActiveCategory] = useState('법령');
 
   // 각 카테고리에 해당하는 링크들
   const categoryLinks = {
@@ -34,16 +35,12 @@ const Sub105 = () => {
       </div>
 
       <div className={styles.sub105__medlawapicontent}>
-        {activeCategory ? (
-          <iframe
-            src={categoryLinks[activeCategory]}
-            width="100%"
-            height="800px"
-            title={`${activeCategory} 법령`}
-          />
-        ) : (
-          <p>카테고리를 선택하십시오.</p>
-        )}
+        <iframe
+          src={categoryLinks[activeCategory]}
+          width="100%"
+          height="800px"
+          title={`${activeCategory} 법령`}
+        />
       </div>
     </div>
   );
