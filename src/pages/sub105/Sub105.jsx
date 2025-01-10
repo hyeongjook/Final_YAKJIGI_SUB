@@ -52,6 +52,7 @@ const Sub105 = () => {
         return;
     }
 
+    
     lawApiCall(apiUrl);
   };
 
