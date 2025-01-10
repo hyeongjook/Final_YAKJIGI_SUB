@@ -6,8 +6,8 @@ const Sub105 = () => {
 
   // 각 카테고리에 해당하는 링크들
   const categoryLinks = {
-    법령: 'https://www.law.go.kr/LSW/lsSc.do?section=&menuId=1&subMenuId=15&tabMenuId=81&eventGubun=060101&query=%EC%9D%98%EC%95%BD%ED%92%88+%EB%B6%80%EC%9E%91%EC%9A%A9+%ED%94%BC%ED%95%B4%EA%B5%AC%EC%A0%9C%EC%97%90+%EA%B4%80%ED%95%9C+%EA%B7%9C%EC%A0%95#undefined',
-    대통령령: 'https://www.law.go.kr/LSW/lsSc.do?section=&menuId=1&subMenuId=15&tabMenuId=81&eventGubun=060101&query=%EC%9D%98%EC%95%BD%ED%92%88+%EB%93%B1%EC%9D%98+%EC%95%88%EC%A0%84%EC%97%90+%EA%B4%80%ED%95%9C+%EA%B7%9C%EC%B9%99#undefined',
+    법령: 'https://www.law.go.kr/lsSc.do?section=&menuId=1&subMenuId=15&tabMenuId=81&eventGubun=060101&query=%EC%95%BD%EC%82%AC%EB%B2%95#undefined',
+    대통령령: 'https://www.law.go.kr/LSW/lsSc.do?section=&menuId=1&subMenuId=15&tabMenuId=81&eventGubun=060101&query=%EC%9D%98%EC%95%BD%ED%92%88+%EB%B6%80%EC%9E%91%EC%9A%A9+%ED%94%BC%ED%95%B4%EA%B5%AC%EC%A0%9C%EC%97%90+%EA%B4%80%ED%95%9C+%EA%B7%9C%EC%A0%95#undefined',
     총리령: 'https://www.law.go.kr/LSW/lsSc.do?section=&menuId=1&subMenuId=15&tabMenuId=81&eventGubun=060101&query=%EC%9D%98%EC%95%BD%ED%92%88+%EB%93%B1%EC%9D%98+%EC%95%88%EC%A0%84%EC%97%90+%EA%B4%80%ED%95%9C+%EA%B7%9C%EC%B9%99#undefined',
     고시: 'https://www.law.go.kr/LSW/admRulSc.do?menuId=5&subMenuId=41&tabMenuId=183&p1=&subMenu=1&nwYn=1&section=&tabNo=&query=%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EC%95%BD%EC%A0%84#liBgcolor0'
   };
