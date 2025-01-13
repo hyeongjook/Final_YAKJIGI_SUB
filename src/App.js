@@ -11,6 +11,7 @@ import Container from './pages/main/Container';
 import Sub105 from './pages/sub105/Sub105';
 import Sub301 from './pages/sub301/Sub301';
 import Sub302 from './pages/sub302/Sub302';
+import Sub101 from './pages/sub101/Sub101';
 import './styles/common.module.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                <Route path='/sub105' element={<Sub105 />}/>
                <Route path='/sub301' element={<Sub301 />}/>
                <Route path='/sub302' element={<Sub302 />}/>
+               <Route path='/sub101' element={<Sub101 />}/>
             </Routes>
             <Footer />
          </div>
